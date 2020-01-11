@@ -1,0 +1,7 @@
+.message {
+    height: 600;
+    width: 400;
+    padding: 5% 0;
+    overflow: auto;
+    flex: auto;
+}

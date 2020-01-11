@@ -1,0 +1,363 @@
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgb(219, 217, 217);
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.HeaderContent {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 80px;
+  background: #2979ff;
+  color: white;
+}
+
+.HeaderContent h1 {
+  font-size: 3vw;
+  position: absolute;
+  margin: 0px 30px;
+  vertical-align: middle;
+  padding: 0px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-shadow: 10px 0px 20px #222;
+}
+
+.outerContainer {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 70vh;
+  height: 70vh;
+  margin-top: -20px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  vertical-align: middle;
+  max-height: 50vh;
+  height: 50vh;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.container .ui.segment {
+  min-height: 40vh;
+  height: 40vh;
+  margin: 0;
+  border-bottom: none;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  overflow-x: hidden;
+}
+
+.ui.segment {
+  color: green;
+  border: none;
+}
+
+.advice {
+  width: 40%;
+  margin: 0;
+  position: fixed;
+  top: 10px;
+  left: 30%;
+}
+
+.advice .main {
+  border: none;
+  text-align: center;
+}
+
+.advice .icon {
+  width: 20%;
+  height: 50px;
+  font-size: 50px;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid grey;
+}
+
+.ui.card {
+  height: 350px;
+  margin: 2%;
+  padding-bottom: 10px;
+  margin-right: -5%;
+  top: -30px;
+}
+
+.one {
+  margin: 2%;
+  margin-right: -6%;
+}
+
+.one .ui.card {
+  height: 350px;
+  margin: 0;
+  padding-bottom: 10px;
+  top: 0px;
+}
+
+.ui.card .content {
+  padding-bottom: 0px;
+}
+
+.ui.card .names {
+  height: 260px;
+  margin-right: -3%;
+  overflow-x: hidden;
+  top: -30px;
+}
+
+.ui.card .names .items {
+  border-bottom: 2px solid #ddd;
+
+}
+
+.ui.card .names p {
+  margin-right: 5px;
+  color: rgb(56, 54, 54);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container1 {
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  bottom: 22%;
+  color: orange;
+  margin-left: 5px;
+}
+
+.container1:hover,
+.container1:focus {
+  color: white;
+  border-radius: 50%;
+  border: none;
+
+  text-align: center;
+  cursor: pointer;
+  padding: 0;
+  outline: 0;
+  background-color: rgb(241, 206, 9);
+}
+
+.ui.card .content .header {
+  color: green;
+  border-bottom: 2px solid green;
+}
+
+.ui.card .header.two {
+  color: red;
+  text-align: center;
+  border-bottom: 2px solid red;
+}
+
+.ui.card .content p {
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+
+}
+
+
+.ui.card .extra p {
+  display: inline-flex;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.ui.card.logout .extra a {
+  width: 50%;
+  color: white;
+  margin: 0;
+  padding: 10px;
+  opacity: .8;
+}
+
+.ui.card.logout .extra a:hover {
+  color: white;
+  opacity: 1;
+}
+
+.ui.card.logout .extra a:first-child {
+  border-right: 2px solid lightgrey;
+  background: green;
+}
+
+.ui.card.logout .extra a:last-child {
+  background: red;
+}
+
+
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  transition: all cubic-bezier(0.55, 0.055, 0.675, 0.25) ease-in-out;
+  top: 50%;
+  left: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%);
+}
+
+.overlay .close {
+  position: absolute;
+  top: 10%;
+  right: 7%;
+}
+
+.overlay .close i {
+  color: whitesmoke;
+  font-size: 30px;
+}
+
+.overlay .close i:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.outline.user {
+  display: none;
+  position: relative;
+  float: right;
+  margin: 20px;
+  font-size: 25px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+@media screens and (min-width: 1200px) {
+  .container1 {
+    bottom: 20%
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  .container1 {
+    bottom: 20%
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .one {
+    display: none;
+  }
+
+  .advice {
+    width: 80%;
+    left: 10%;
+  }
+
+  .advice .icon {
+    width: 40%;
+  }
+
+  .container1 {
+    bottom: 22%
+  }
+
+  .container {
+    min-width: 400px;
+    width: 90%;
+  }
+
+  .outline.user {
+    display: block;
+  }
+
+  .HeaderContent h1 {
+    font-size: 4vw;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 700px) {
+  .one {
+    display: none;
+  }
+
+  .container1 {
+    bottom: 20%
+  }
+
+  .HeaderContent h1 {
+    font-size: 35px;
+  }
+
+  .advice {
+    width: 70%;
+    left: 15%;
+  }
+
+  .advice .icon {
+    width: 40%;
+  }
+
+  .outline.user {
+    display: block;
+  }
+
+  .container {
+    min-width: 400px;
+    width: 90%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .one {
+    display: none;
+  }
+
+  html,
+  body {
+    overflow: visible;
+  }
+
+  .advice {
+    width: 80%;
+    left: 10%;
+  }
+
+  .advice .icon {
+    width: 40%;
+  }
+
+  .HeaderContent h1 {
+    font-size: 35px;
+  }
+
+  .outline.user {
+    display: block;
+  }
+
+  .container1 {
+    bottom: 21%;
+    border-radius: 50%;
+    box-shadow: 1px 3px 5px black;
+  }
+
+  .container {
+    min-width: 400px;
+    width: 80%;
+  }
+}

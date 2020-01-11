@@ -1,0 +1,72 @@
+.messageBox {
+    background: rgb(168, 148, 148);
+    border-top-right-radius: 25%;
+    border-bottom-left-radius: 15%;
+    padding: 5px 20px;
+    color: #fff;
+    display: inline-block;
+    max-width: 70%;
+}
+
+.messageText {
+    width: 100%;
+    letter-spacing: 0;
+    float: left;
+    font-size: 1.1em;
+    word-wrap: break-word;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.messageText img {
+    vertical-align: middle;
+}
+
+.messageContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 3%;
+    margin-top: 3%;
+}
+
+.sentUser {
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #828282;
+    letter-spacing: 0.3px;
+}
+
+.pr-10 {
+    padding-right: 5px;
+    display: block;
+}
+
+.pl-10 {
+    padding-left: 10px;
+    display: block;
+}
+
+.justifyStart {
+    justify-content: flex-start;
+
+}
+
+.justifyEnd {
+    justify-content: flex-end;
+}
+
+.colorWhite {
+    color: white
+}
+
+.colorDark {
+    color: #353535
+}
+
+.bgBlue {
+    background: rgb(64, 134, 253)
+}
+
+.bgLight {
+    background: rgb(190, 238, 114)
+}
