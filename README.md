@@ -1,6 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the front-end of the usChat app. u can view the backend repo here [usChat-Backend](https://github.com/ArnauldAnguh/usChat) 
 
-## Available Scripts
+## Available Script
 
 In the project directory, you can run:
 
