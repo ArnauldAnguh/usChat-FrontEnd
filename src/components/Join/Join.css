@@ -4,17 +4,44 @@
     text-align: center;
     height: 100vh;
     align-items: center;
-    background: #1A1A1D
+    background: rgb(51, 51, 110)
 }
 
 .joinInnerContainer {
     width: 40%
 }
 
+.head {
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0px 5px 5px rgb(81, 81, 245);
+}
+
 .joinInput {
-    border-radius: 0;
+    border: none;
+    border-radius: 5px;
     padding: 15px 20px;
-    width: 100%
+    width: 100%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.instruc {
+    margin-top: 5px;
+}
+
+.instruc li {
+    text-align: left;
+    float: left;
+
+}
+
+.ui.segment.intro {
+    width: 50%;
+    position: absolute;
+    top: 5%;
+    text-align: center;
+    padding: 10px;
+    font-size: 25px
 }
 
 .heading {
@@ -35,15 +62,80 @@
     border: none;
     width: 100%;
     cursor: pointer;
+    animation: animate .8s ease-in-out infinite;
+}
+
+
+@keyframes animate {
+    from {
+        box-shadow: 0px 1px 5px white;
+        text-shadow: 0px 1px 5px rgb(146, 119, 119);
+    }
+
+    50% {
+        box-shadow: 0px 1px 5px rgb(188, 20, 221);
+
+    }
+
+    to {
+        box-shadow: 0px 1px 5px rgb(237, 145, 255);
+        scale: 1.2
+    }
 }
 
 .mt-20 {
     margin-top: 20px
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 481px) and (max-width: 700px) {
+    .joinOuterContainer {
+        width: 100%;
+        box-sizing: border-box;
+
+    }
+
     .joinInnerContainer {
-        width: 90%
+        width: 90%;
+    }
+
+    .ui.segment.intro {
+        width: 90%;
+        margin: 5px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .joinOuterContainer {
+        width: 100%;
+        box-sizing: border-box;
+
+    }
+
+    .joinInnerContainer {
+        width: 90%;
+    }
+
+    .ui.segment.intro {
+        width: 90%;
+        margin: 5px;
+    }
+}
+
+@media (min-width: 250px) and (max-width: 320px) {
+    .joinOuterContainer {
+        width: 100%;
+        box-sizing: border-box;
+
+    }
+
+    .joinInnerContainer {
+        width: 90%;
+    }
+
+    .ui.segment.intro {
+        width: 90%;
+        margin: 5px;
+        left: 2%;
     }
 }
 

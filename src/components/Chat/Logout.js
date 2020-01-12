@@ -15,7 +15,7 @@ const Logout = ({ logout, toggleOffLogoutOverlay }) => {
         </div>
         <div className='extra content'>
           <p>
-            <a href='/usChat'>Yes</a>
+            <a href='/'>Yes</a>
 
             <a onClick={toggleOffLogoutOverlay}>No</a>
           </p>
