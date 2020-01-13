@@ -1,6 +1,6 @@
 import React from 'react';
 import SocialMediaButtons from './SocialBtns';
-const Notice = ({ showNotice, toggleOffNotice }) => {
+const Notice = ({ showNotice, toggleOffNotice, room }) => {
   const url = 'dreamy-archimedes-7da915.netlify.com/';
   return showNotice ? (
     <div className='overlay'>
@@ -26,7 +26,8 @@ const Notice = ({ showNotice, toggleOffNotice }) => {
           <br></br>
           <SocialMediaButtons
             url={url}
-            text='Check out this website: www.google.com'
+            text='Check out this App: dreamy-archimedes-7da915.netlify.com/'
+            room={room}
           />
         </div>
       </div>

@@ -96,7 +96,7 @@ const Chat = ({ location }) => {
         showNotice={showNotice}
         toggleOnNotice={toggleOnNotice}
       />
-      <Notice showNotice={showNotice} toggleOffNotice={toggleOffNotice} />
+      <Notice showNotice={showNotice} room={room} toggleOffNotice={toggleOffNotice} />
       <div className='outerContainer'>
         <Logout
           logout={logout}
