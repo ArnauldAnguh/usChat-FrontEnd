@@ -22,6 +22,7 @@ const Chat = ({ location }) => {
   const [showOverlay, setOverlay] = useState(false);
   const [showNotice, setNotice] = useState(false);
   const [logout, setLogout] = useState(false);
+  const [link, setLink] = useState('');
   const [history, setHistory] = useState([]);
   const ENDPOINT = 'https://uschatv1.herokuapp.com/';
 
@@ -31,7 +32,7 @@ const Chat = ({ location }) => {
 
     setName(name);
     setRoom(room);
-
+    setLink(location.search);
     socket.emit('join', { name, room }, () => {});
 
     return () => {
@@ -96,7 +97,11 @@ const Chat = ({ location }) => {
         showNotice={showNotice}
         toggleOnNotice={toggleOnNotice}
       />
-      <Notice showNotice={showNotice} room={room} toggleOffNotice={toggleOffNotice} />
+      <Notice
+        showNotice={showNotice}
+        room={room}
+        toggleOffNotice={toggleOffNotice}
+      />
       <div className='outerContainer'>
         <Logout
           logout={logout}
@@ -129,4 +134,4 @@ const Chat = ({ location }) => {
   );
 };
 
-export default Chat;
+export { Chat, link };

@@ -10,13 +10,17 @@ const SocialMediaButtons = props => (
   <div>
     <FacebookShareButton
       url={props.url}
-      quote={props.text + 'Join Me in ROOM:' + props.room}
+      quote={
+        (props.text, ` {'\u2728'} <br>(Join Me in ROOM NAME: ${props.room})`)
+      }
     >
       <FacebookIcon size={28} round={true} />
     </FacebookShareButton>
     <WhatsappShareButton
       url={props.url}
-      title={props.text + 'Join Me in ROOM:' + props.room}
+      title={
+        (props.text, ` {'\u2728'} <br>(Join Me in ROOM NAME: ${props.room})`)
+      }
     >
       <WhatsappIcon size={28} round={true} />
     </WhatsappShareButton>
