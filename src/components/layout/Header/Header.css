@@ -10,10 +10,9 @@
 
 .leftInnerContainer {
     flex: 0.5;
-    display: flex;
-    align-items: center;
+    display: block;
     margin-left: 5%;
-    color: white
+    color: white;
 }
 
 .overlay {
@@ -34,8 +33,6 @@
 .leftInnerContainer h3 {
     position: relative;
     display: inline;
-    top: -10px;
-
 }
 
 .rightInnerContainer {

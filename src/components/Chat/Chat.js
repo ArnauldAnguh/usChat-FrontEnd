@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
+
 import TextContainer from '../layout/TextContainer/TextContainer';
 import Logout from './Logout';
 import ShowOverlay from './ShowOverlay';
@@ -19,7 +20,9 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
   const [showEmojiPicker, setPicker] = useState(false);
   const [showOverlay, setOverlay] = useState(false);
+  const [showNotice, setNotice] = useState(false);
   const [logout, setLogout] = useState(false);
+  const [history, setHistory] = useState([]);
   const ENDPOINT = 'https://uschatv1.herokuapp.com/';
 
   useEffect(() => {
@@ -30,6 +33,7 @@ const Chat = ({ location }) => {
     setRoom(room);
 
     socket.emit('join', { name, room }, () => {});
+
     return () => {
       socket.emit('disconnect');
 
@@ -37,10 +41,8 @@ const Chat = ({ location }) => {
     };
   }, [ENDPOINT, location.search]);
   useEffect(() => {
-    // JSON.parse(localStorage.getItem('message') || JSON.stringify(messages));
     socket.on('message', message => {
       setMessages([...messages, message]);
-      // localStorage.setItem('message', JSON.stringify(messages));
     });
 
     socket.on('roomData', ({ users }) => {
@@ -73,6 +75,12 @@ const Chat = ({ location }) => {
   const toggleOnOverlay = () => {
     setOverlay(true);
   };
+  const toggleOnNotice = () => {
+    setNotice(true);
+  };
+  const toggleOffNotice = () => {
+    setNotice(false);
+  };
   const toggleOffOverlay = () => {
     setOverlay(false);
   };
@@ -83,8 +91,12 @@ const Chat = ({ location }) => {
   };
   return (
     <div>
-      <Header toggleOnOverlay={toggleOnOverlay} />
-      <Notice />
+      <Header
+        toggleOnOverlay={toggleOnOverlay}
+        showNotice={showNotice}
+        toggleOnNotice={toggleOnNotice}
+      />
+      <Notice showNotice={showNotice} toggleOffNotice={toggleOffNotice} />
       <div className='outerContainer'>
         <Logout
           logout={logout}
@@ -107,6 +119,7 @@ const Chat = ({ location }) => {
           addEmoji={addEmoji}
           toggleEmojiPicker={toggleEmojiPicker}
           message={message}
+          history={history}
         />
         <div className='one'>
           <TextContainer users={users} user={name} />

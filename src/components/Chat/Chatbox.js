@@ -4,6 +4,7 @@ import { Picker } from 'emoji-mart';
 import HeaderBar from '../layout/Header/HeaderBar';
 import Input from '../layout/Textarea/Input';
 import Messages from '../layout/Messages/Messages';
+import ChatHistory from './ChatHistory';
 
 const Logout = ({
   sendMessage,
@@ -13,6 +14,8 @@ const Logout = ({
   messages,
   message,
   room,
+  typing,
+  history,
   addEmoji,
   showEmojiPicker,
   toggleEmojiPicker
@@ -21,7 +24,8 @@ const Logout = ({
     <div className='container'>
       <HeaderBar room={room} logout={toggleOnLogoutOverlay} />
       <div className='ui segment'>
-        <Messages messages={messages} name={name} />
+        <ChatHistory history={history} />
+        <Messages messages={messages} name={name} typing={typing} />
       </div>
       <div
         className='iconOverlay'

@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactEmoji from 'react-emoji';
-import { format } from 'date-fns';
 import './Message.css';
-
-const Message = ({ message: { user, text, role }, name }) => {
+// import Loader from 'react-loader-spinner';
+const Message = ({ message: { user, text, role, when }, name }) => {
   let isSendByCurrentUser = false;
+  const messageDate = new Date(when);
+  const messageDateTime = messageDate.toLocaleTimeString();
   const trimmedName = name.trim().toLowerCase();
-  const time = format(new Date(), 'HH:mm');
+  text = text.trim();
   if (user === trimmedName) {
     isSendByCurrentUser = true;
   }
   return isSendByCurrentUser ? (
     <div className='messageContainer justifyEnd'>
       <p className='sentUser pr-10'>
-        <small> {time} </small>
+        <small>{messageDateTime}</small>
         <br /> <span style={{ float: 'left' }}>{trimmedName}</span>
       </p>
       <div className='messageBox bgBlue'>
@@ -28,7 +29,7 @@ const Message = ({ message: { user, text, role }, name }) => {
         <p className='messageText colorDark'>{ReactEmoji.emojify(text)}</p>
       </div>
       <p className='sentUser pl-10'>
-        <small> {time} </small>
+        <small>{messageDateTime}</small>
         <br /> <span style={{ float: 'left' }}>{user}</span>
       </p>
     </div>

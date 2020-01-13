@@ -1,5 +1,6 @@
 .form {
     display: flex;
+    background: green
 }
 
 .input {
@@ -7,6 +8,7 @@
     border-radius: 0;
     padding: 5%;
     width: 80%;
+    margin: 0;
     font-size: 1.2em;
 }
 
