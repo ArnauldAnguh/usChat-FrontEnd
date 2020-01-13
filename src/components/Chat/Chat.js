@@ -25,7 +25,7 @@ const Chat = ({ location }) => {
   const [link, setLink] = useState('');
   const [history, setHistory] = useState([]);
   const ENDPOINT = 'https://uschatv1.herokuapp.com/';
-
+  let LINK = link;
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
     socket = io(ENDPOINT);
@@ -134,4 +134,4 @@ const Chat = ({ location }) => {
   );
 };
 
-export { Chat, link };
+export { Chat, LINK };

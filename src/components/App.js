@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Join from './Join/Join';
-import { Chat, link } from './Chat/Chat';
+import { Chat, LINK } from './Chat/Chat';
 
 const App = () => {
-  const url = `/chatroom/${link}`;
+  const url = `/chatroom/${LINK}`;
   return (
     <Router>
       <Route path='/' exact component={Join} />
