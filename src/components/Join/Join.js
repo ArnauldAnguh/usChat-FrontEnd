@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Join.css';
-let linkUrl;
 const Join = () => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
@@ -65,10 +64,9 @@ const Join = () => {
             onChange={event => setRoom(event.target.value)}
           />
         </div>
-        {(linkUrl = () => `/chatroom?name=${name}&room=${room}`)}
         <Link
           onClick={event => (!name || !room ? invalidData(event) : null)}
-          to={linkUrl}
+          to={`https://dreamy-archimedes-7da915.netlify.com/chatroom?name=${name}&room=${room}`}
         >
           <button className='button mt-20' type='submit'>
             Enter
@@ -79,4 +77,4 @@ const Join = () => {
   );
 };
 
-export { Join, linkUrl };
+export default Join;
