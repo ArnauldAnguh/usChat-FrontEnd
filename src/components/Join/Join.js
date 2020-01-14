@@ -66,7 +66,7 @@ const Join = () => {
         </div>
         <Link
           onClick={event => (!name || !room ? invalidData(event) : null)}
-          to={`https://dreamy-archimedes-7da915.netlify.com/chatroom?name=${name}&room=${room}`}
+          to={`/chatroom?name=${name}&room=${room}`}
         >
           <button className='button mt-20' type='submit'>
             Enter

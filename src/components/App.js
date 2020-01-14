@@ -4,7 +4,7 @@ import Join from './Join/Join';
 import Chat from './Chat/Chat';
 
 const App = () => {
-  const url = `https://dreamy-archimedes-7da915.netlify.com/chatroom`;
+  const url = `/chatroom`;
   // console.log(url);
   return (
     <Router>
