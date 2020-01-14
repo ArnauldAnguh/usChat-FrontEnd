@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Join.css';
-
+let linkUrl;
 const Join = () => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+  const [error, setError] = useState('');
   const [directions, setDirections] = useState(false);
-
+  const invalidData = event => {
+    event.preventDefault();
+    setError(true);
+  };
   return (
     <div className='joinOuterContainer'>
       <div className='ui segment intro'>
@@ -18,7 +22,6 @@ const Join = () => {
           <small>No Registration required!!</small>
         </b>
         <br />
-
         <hr />
         {directions ? (
           <small className='item instruc'>
@@ -36,6 +39,14 @@ const Join = () => {
           </small>
         ) : null}
       </div>
+      {error ? (
+        <div className='ui negative message'>
+          <i className='close icon' onClick={() => setError(false)}></i>
+          <br />
+          <div className='header'>!!warning: Invalid Credentials</div>
+          <p>Fill in all required Fields</p>
+        </div>
+      ) : null}
       <div className='joinInnerContainer'>
         <h1 className='heading head'>Join Room</h1>
         <div>
@@ -54,9 +65,10 @@ const Join = () => {
             onChange={event => setRoom(event.target.value)}
           />
         </div>
+        {(linkUrl = () => `/chatroom?name=${name}&room=${room}`)}
         <Link
-          onClick={event => (!name || !room ? event.preventDefault() : null)}
-          to={`/chatroom?name=${name}&room=${room}`}
+          onClick={event => (!name || !room ? invalidData(event) : null)}
+          to={linkUrl}
         >
           <button className='button mt-20' type='submit'>
             Enter
@@ -67,4 +79,4 @@ const Join = () => {
   );
 };
 
-export default Join;
+export { Join, linkUrl };

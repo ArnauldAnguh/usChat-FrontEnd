@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Join from './Join/Join';
-import { Chat, LINK } from './Chat/Chat';
+import { Join, linkUrl } from './Join/Join';
+import Chat from './Chat/Chat';
 
 const App = () => {
-  const url = `/chatroom/${LINK}`;
+  
+  console.log(linkUrl);
   return (
     <Router>
       <Route path='/' exact component={Join} />
-      <Route path={url} component={Chat} />
+      <Route path={linkUrl} component={Chat} />
     </Router>
   );
 };

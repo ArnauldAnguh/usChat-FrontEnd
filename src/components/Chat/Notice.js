@@ -26,7 +26,7 @@ const Notice = ({ showNotice, toggleOffNotice, room }) => {
           <br></br>
           <SocialMediaButtons
             url={url}
-            text='Check out this App: dreamy-archimedes-7da915.netlify.com/'
+            text='Hey, Lets Chat on'
             room={room}
           />
         </div>

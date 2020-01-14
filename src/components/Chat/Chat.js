@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
+// import { connect } from 'react-redux';
+// import { setCurrentUserID, addMessage } from '../../actions';
 import io from 'socket.io-client';
-
 import TextContainer from '../layout/TextContainer/TextContainer';
 import Logout from './Logout';
 import ShowOverlay from './ShowOverlay';
@@ -22,28 +23,25 @@ const Chat = ({ location }) => {
   const [showOverlay, setOverlay] = useState(false);
   const [showNotice, setNotice] = useState(false);
   const [logout, setLogout] = useState(false);
-  const [link, setLink] = useState('');
   const [history, setHistory] = useState([]);
   const ENDPOINT = 'https://uschatv1.herokuapp.com/';
-  let LINK = link;
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
     socket = io(ENDPOINT);
-
     setName(name);
     setRoom(room);
-    setLink(location.search);
+    
     socket.emit('join', { name, room }, () => {});
-
     return () => {
       socket.emit('disconnect');
-
+      
       socket.off();
     };
   }, [ENDPOINT, location.search]);
   useEffect(() => {
     socket.on('message', message => {
       setMessages([...messages, message]);
+      setHistory([...messages, message])
     });
 
     socket.on('roomData', ({ users }) => {
@@ -52,11 +50,11 @@ const Chat = ({ location }) => {
 
     return () => {
       socket.emit('disconnect');
-
+      
       socket.off();
     };
   }, [messages]);
-
+  
   const sendMessage = event => {
     event.preventDefault();
 
@@ -90,6 +88,7 @@ const Chat = ({ location }) => {
     setMessage(text);
     setPicker(false);
   };
+  console.log(location.search)
   return (
     <div>
       <Header
@@ -133,5 +132,21 @@ const Chat = ({ location }) => {
     </div>
   );
 };
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     addMessage: message => dispatch(addMessage(message)),
+//     setUserID: userID => dispatch(setCurrentUserID(userID))
+//   };
+// }
+// function mapStateToProps(state) {
+// return {
+//     history: state.app.get('messages').toJS(),
+//     userID: state.app.get('userID'),
+// };
+// }
+// export default connect(
+//     mapStateToProps,
+//     mapDispatchToProps,
+// )(App);
 
-export { Chat, LINK };
+export default Chat;

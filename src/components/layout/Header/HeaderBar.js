@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-let date = `${new Date().getUTCDay()}/${new Date().getUTCDate()}/${new Date().getUTCFullYear()}`;
+const date = new Date().toDateString();
 const HeaderBar = ({ room, logout }) => (
   <div className='headerBar'>
     <div className='leftInnerContainer'>

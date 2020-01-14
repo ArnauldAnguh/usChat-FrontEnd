@@ -10,7 +10,10 @@
 .joinInnerContainer {
     width: 40%
 }
-
+.negative.message{
+    position: absolute;
+    top: 18%;
+}
 .head {
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 0px 5px 5px rgb(81, 81, 245);
