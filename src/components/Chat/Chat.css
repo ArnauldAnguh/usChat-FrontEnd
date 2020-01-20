@@ -5,7 +5,7 @@ body {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  background: #222
+  background: rgb(219, 217, 217);
 }
 
 .num {
@@ -89,7 +89,6 @@ a {
 .container .ui.segment {
   height: 75vh;
   margin: 0;
-  background: #222;
   border-bottom: none;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
@@ -99,7 +98,6 @@ a {
 .ui.segment {
   color: green;
   border: none;
-  background: #222
 }
 
 .advice {
