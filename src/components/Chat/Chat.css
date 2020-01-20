@@ -411,6 +411,12 @@ a {
     font-size: 35px;
   }
 
+  .showFeed .close,
+  .overlay1 .close,
+  .overlay .close {
+    top: 20%;
+  }
+
   .advice {
     width: 70%;
   }
@@ -432,6 +438,12 @@ a {
 @media (min-width: 320px) and (max-width: 480px) {
   .one {
     display: none;
+  }
+
+  .showFeed .close,
+  .overlay1 .close,
+  .overlay .close {
+    top: 20%;
   }
 
   .showFeed {
