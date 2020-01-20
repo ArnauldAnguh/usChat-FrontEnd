@@ -1,6 +1,5 @@
 .form {
     display: flex;
-    background: #222
 }
 
 .input {
@@ -10,7 +9,6 @@
     width: 80%;
     margin: 0;
     font-size: 1.2em;
-    background: #222
 }
 
 input:focus,
