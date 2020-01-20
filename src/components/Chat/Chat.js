@@ -9,6 +9,7 @@ import ShowOverlay from './ShowOverlay';
 import Chatbox from './Chatbox';
 import Notice from './Notice';
 import Header from './Header';
+import FeedBack from './FeedBack';
 import './Chat.css';
 import 'emoji-mart/css/emoji-mart.css';
 
@@ -23,6 +24,7 @@ const Chat = ({ location }) => {
   const [showOverlay, setOverlay] = useState(false);
   const [showNotice, setNotice] = useState(false);
   const [logout, setLogout] = useState(false);
+  const [feedBack, setFeedBack] = useState(false);
   const [history, setHistory] = useState([]);
   const ENDPOINT = 'https://uschatv1.herokuapp.com/';
   useEffect(() => {
@@ -30,18 +32,18 @@ const Chat = ({ location }) => {
     socket = io(ENDPOINT);
     setName(name);
     setRoom(room);
-    
+
     socket.emit('join', { name, room }, () => {});
     return () => {
       socket.emit('disconnect');
-      
+
       socket.off();
     };
   }, [ENDPOINT, location.search]);
   useEffect(() => {
     socket.on('message', message => {
       setMessages([...messages, message]);
-      setHistory([...messages, message])
+      setHistory([...messages, message]);
     });
 
     socket.on('roomData', ({ users }) => {
@@ -50,11 +52,11 @@ const Chat = ({ location }) => {
 
     return () => {
       socket.emit('disconnect');
-      
+
       socket.off();
     };
   }, [messages]);
-  
+
   const sendMessage = event => {
     event.preventDefault();
 
@@ -83,12 +85,18 @@ const Chat = ({ location }) => {
   const toggleOffOverlay = () => {
     setOverlay(false);
   };
+  const setFeedBackOn = () => {
+    toggleOffOverlay();
+    setFeedBack(true);
+  };
+  const setFeedBackOff = () => {
+    setFeedBack(false);
+  };
   const addEmoji = emoji => {
     const text = `${message}${emoji.native}`;
     setMessage(text);
     setPicker(false);
   };
-  console.log(location.search)
   return (
     <div>
       <Header
@@ -112,6 +120,7 @@ const Chat = ({ location }) => {
           users={users}
           name={name}
         />
+        <FeedBack feedBack={feedBack} setFeedBackOff={setFeedBackOff} />
         <Chatbox
           sendMessage={sendMessage}
           setMessage={setMessage}
@@ -126,7 +135,11 @@ const Chat = ({ location }) => {
           history={history}
         />
         <div className='one'>
-          <TextContainer users={users} user={name} />
+          <TextContainer
+            users={users}
+            setFeedBackOn={setFeedBackOn}
+            user={name}
+          />
         </div>
       </div>
     </div>

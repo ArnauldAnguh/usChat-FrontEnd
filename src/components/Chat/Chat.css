@@ -7,6 +7,7 @@ body {
   box-sizing: border-box;
   background: rgb(219, 217, 217);
 }
+
 .num {
   border-radius: 50%;
   position: absolute;
@@ -15,6 +16,7 @@ body {
   font-size: 13px;
   background: red
 }
+
 a {
   text-decoration: none;
 }
@@ -47,6 +49,7 @@ a {
   align-items: center;
   width: 100%;
   max-height: 100vh;
+  background: url('https://media.giphy.com/media/tKx3Fcc1vv9BhDMMjw/giphy.gif');
   background-attachment: fixed;
   height: 100vh;
   margin: 0;
@@ -146,15 +149,15 @@ a {
   height: 260px;
   margin-right: -.5%;
   overflow-x: hidden;
- 
+
   top: -30px;
-  background-image: url('https://media.giphy.com/media/tKx3Fcc1vv9BhDMMjw/giphy.gif');
+  /* background-image: url('https://media.giphy.com/media/tKx3Fcc1vv9BhDMMjw/giphy.gif'); */
 }
 
 .ui.card .names .items {
   border-bottom: 2px solid #ddd;
   text-transform: capitalize;
- color: white;
+  /* color: white; */
 }
 
 .ui.card .names p {
@@ -234,6 +237,43 @@ a {
   background: red;
 }
 
+
+.showFeed {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  width: 50%;
+  border-radius: 10px;
+  height: 60vh;
+  transition: all cubic-bezier(0.55, 0.055, 0.675, 0.25) ease-in-out;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  background: url('https://cdn.clipart.email/245f64e0f1fc040e5cca293665ceefd5_fireworks-sticker-for-ios-android-giphy_300-300.gif') rgba(83, 64, 64, 0.6);
+  transform: translate(-50%, -50%);
+}
+
+.ui.segment.feedback {
+  background-image: url('https://cdn.clipart.email/245f64e0f1fc040e5cca293665ceefd5_fireworks-sticker-for-ios-android-giphy_300-300.gif');
+}
+
+.showFeed .close {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+}
+
+.showFeed .close i {
+  color: whitesmoke;
+  font-size: 30px;
+}
+
+.showFeed .close i:hover {
+  cursor: pointer;
+  color: white;
+}
 
 .overlay1 {
   position: absolute;
@@ -328,6 +368,10 @@ a {
     width: 80%;
   }
 
+  .showFeed {
+    width: 70%;
+  }
+
   .advice .icon {
     width: 40%;
   }
@@ -353,6 +397,10 @@ a {
 @media (min-width: 481px) and (max-width: 700px) {
   .one {
     display: none;
+  }
+
+  .showFeed {
+    width: 95%;
   }
 
   .container1 {
@@ -384,6 +432,11 @@ a {
 @media (min-width: 320px) and (max-width: 480px) {
   .one {
     display: none;
+  }
+
+  .showFeed {
+    width: 100%;
+    height: 100vh;
   }
 
   html,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextContainer = ({ users, user }) => {
+const TextContainer = ({ users, user, setFeedBackOn }) => {
   return (
     <div className='ui card'>
       <div className='content'>
@@ -31,11 +31,11 @@ const TextContainer = ({ users, user }) => {
       </div>
       <div className='extra content'>
         Rate us:
-        <i className='star outline icon'></i>
-        <i className='star outline icon'></i>
-        <i className='star outline icon'></i>
-        <i className='star outline icon'></i>
-        <i className='star outline icon'></i>
+        <i className='star outline icon' onClick={setFeedBackOn}></i>
+        <i className='star outline icon' onClick={setFeedBackOn}></i>
+        <i className='star outline icon' onClick={setFeedBackOn}></i>
+        <i className='star outline icon' onClick={setFeedBackOn}></i>
+        <i className='star outline icon' onClick={setFeedBackOn}></i>
       </div>
     </div>
   );
