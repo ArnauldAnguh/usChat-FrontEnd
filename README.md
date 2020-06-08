@@ -1,7 +1,7 @@
-This is the front-end of the usChat app. u can view the backend repo here [usChat-Backend](https://github.com/ArnauldAnguh/usChat) 
+This is the front-end of the usChat app. view the backend repo using this link [UsChat Backend](https://github.com/ArnauldAnguh/usChat) 
 
 ## Available Script
 
-In the project directory, you can run:
+In the project directory, run the following commands:
 
-### `npm start`
+### `npm start` : this command script starts the development server of the app
